@@ -1,5 +1,5 @@
 <template>
-  <a-card :loading="loading" :body-style="{ padding: '20px 24px 8px' }" :bordered="false">
+  <a-card :loading="loading" :body-style="{ padding: '20px 24px 8px' }" :bordered="false" :hoverable="hoverable">
     <div class="chart-card-header">
       <div class="meta">
         <span class="chart-card-title">
@@ -44,6 +44,10 @@ export default {
       default: null
     },
     loading: {
+      type: Boolean,
+      default: false
+    },
+    hoverable: {
       type: Boolean,
       default: false
     }

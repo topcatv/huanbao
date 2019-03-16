@@ -9,8 +9,24 @@ export const asyncRouterMap = [
     name: 'index',
     component: BasicLayout,
     meta: { title: '首页' },
-    redirect: '/dashboard/workplace',
+    redirect: '/index/hmonitor',
     children: [
+      // 首页
+      {
+        path: '/index',
+        name: 'index',
+        redirect: '/index/hmonitor',
+        component: RouteView,
+        meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
+        children: [
+          {
+            path: '/index/hmonitor',
+            name: 'HMonitor',
+            component: () => import('@/views/dashboard/HMonitor'),
+            meta: { title: '分析页', keepAlive: true, permission: [ 'dashboard' ] }
+          }
+        ]
+      },
       // dashboard
       {
         path: '/dashboard',
