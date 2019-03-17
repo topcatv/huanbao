@@ -23,7 +23,28 @@ export const asyncRouterMap = [
             path: '/index/hmonitor',
             name: 'HMonitor',
             component: () => import('@/views/dashboard/HMonitor'),
-            meta: { title: '分析页', keepAlive: true, permission: [ 'dashboard' ] }
+            meta: { title: '监控平台', keepAlive: true, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/index/car',
+            name: 'Car',
+            hidden: true,
+            component: () => import('@/views/hb/Car'),
+            meta: { title: '车辆', keepAlive: true, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/index/gas',
+            name: 'Gas',
+            hidden: true,
+            component: () => import('@/views/hb/Gas'),
+            meta: { title: '油站', keepAlive: true, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/index/road',
+            name: 'Road',
+            hidden: true,
+            component: () => import('@/views/hb/Road'),
+            meta: { title: '路面', keepAlive: true, permission: [ 'dashboard' ] }
           }
         ]
       },
@@ -34,6 +55,7 @@ export const asyncRouterMap = [
         redirect: '/dashboard/workplace',
         component: RouteView,
         meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
+        hidden: true,
         children: [
           {
             path: '/dashboard/analysis',
@@ -63,6 +85,7 @@ export const asyncRouterMap = [
         redirect: '/form/base-form',
         component: PageView,
         meta: { title: '表单页', icon: 'form', permission: [ 'form' ] },
+        hidden: true,
         children: [
           {
             path: '/form/base-form',
@@ -92,6 +115,7 @@ export const asyncRouterMap = [
         component: PageView,
         redirect: '/list/query-list',
         meta: { title: '列表页', icon: 'table', permission: [ 'table' ] },
+        hidden: true,
         children: [
           {
             path: '/list/query-list',
@@ -185,6 +209,7 @@ export const asyncRouterMap = [
         component: RouteView,
         redirect: '/profile/basic',
         meta: { title: '详情页', icon: 'profile', permission: [ 'profile' ] },
+        hidden: true,
         children: [
           {
             path: '/profile/basic',
@@ -208,6 +233,7 @@ export const asyncRouterMap = [
         component: PageView,
         redirect: '/result/success',
         meta: { title: '结果页', icon: 'check-circle-o', permission: [ 'result' ] },
+        hidden: true,
         children: [
           {
             path: '/result/success',
@@ -231,6 +257,7 @@ export const asyncRouterMap = [
         component: RouteView,
         redirect: '/exception/403',
         meta: { title: '异常页', icon: 'warning', permission: [ 'exception' ] },
+        hidden: true,
         children: [
           {
             path: '/exception/403',
@@ -260,6 +287,7 @@ export const asyncRouterMap = [
         redirect: '/account/center',
         name: 'account',
         meta: { title: '个人页', icon: 'user', keepAlive: true, permission: [ 'user' ] },
+        hidden: true,
         children: [
           {
             path: '/account/center',
@@ -317,6 +345,7 @@ export const asyncRouterMap = [
         component: PageView,
         meta: { title: '其他组件', icon: 'slack', permission: [ 'dashboard' ] },
         redirect: '/other/icon-selector',
+        hidden: true,
         children: [
           {
             path: '/other/icon-selector',

@@ -1,0 +1,39 @@
+[
+  {
+    "lnglat": [114.292285,30.590044],
+    "carNo": "鄂A17887",
+    "user": "张加",
+    "mobile": "1376648987",
+    "create": "2016-09-04",
+    "temp": 59,
+    "scrBefore": 70,
+    "scrAfter": 63,
+    "scrN0Before": 70,
+    "scrN0After": 63,
+    "scrN0AfterTime": "2019-01-05"
+  }, {
+    "lnglat": [114.276964,30.62037],
+    "carNo": "鄂AC7837",
+    "user": "葛进",
+    "mobile": "1376633487",
+    "create": "2013-11-09",
+    "temp": 59,
+    "scrBefore": 70,
+    "scrAfter": 63,
+    "scrN0Before": 70,
+    "scrN0After": 63,
+    "scrN0AfterTime": "2019-08-15"
+  }, {
+    "lnglat": [114.263392,30.59414],
+    "carNo": "鄂AL7907",
+    "user": "丰国民",
+    "mobile": "13456648987",
+    "create": "2014-03-04",
+    "temp": 59,
+    "scrBefore": 70,
+    "scrAfter": 63,
+    "scrN0Before": 70,
+    "scrN0After": 63,
+    "scrN0AfterTime": "2019-10-05"
+  }
+]

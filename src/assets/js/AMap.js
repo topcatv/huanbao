@@ -17,7 +17,9 @@ export default function MapLoader () {
       loca.onerror = reject
       document.head.appendChild(loca)
 
-      setTimeout(() => resolve({ AMap: window.AMap, Loca: window.Loca }), 2000)
+      // resolve({ AMap: window.AMap, Loca: window.Loca })
+
+      setTimeout(() => resolve({ AMap: window.AMap, Loca: window.Loca }), 1000)
     }
   })
 }

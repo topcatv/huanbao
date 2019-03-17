@@ -2,77 +2,73 @@
   <div class="page-header-index-wide">
     <a-row :gutter="24">
       <a-col :sm="24" :md="8" :xl="8" :style="{ marginBottom: '24px' }">
-        <chart-card :hoverable="true" :loading="loading" title="污染指标--车" :total="8846 | NumberFormat">
-          <a-tooltip title="指标说明" slot="action">
-            <v-icon type="v-iconcar" />
-          </a-tooltip>
-          <div>
-            <mini-area />
-          </div>
-          <template slot="footer">
-            日最高<span> {{ '1234' | NumberFormat }}</span>
-            <trend flag="down" style="margin-right: 16px;">
-              <span slot="term">同周比</span>
-              12%
-            </trend>
-            <trend flag="up">
-              <span slot="term">日环比</span>
-              80%
-            </trend>
-          </template>
-        </chart-card>
+        <router-link to="/index/car">
+          <chart-card :hoverable="true" :loading="loading" title="污染指标--车" :total="8846">
+            <a-tooltip title="车辆" slot="action">
+              <v-icon type="v-iconcar" style="color: #C47826; font-size: 22px"/>
+            </a-tooltip>
+            <div>
+              <mini-area />
+            </div>
+            <template slot="footer">
+              日最高<span> {{ '9849' | NumberFormat }}</span>
+              <trend flag="down" style="margin-left: 16px; float: right">
+                <span slot="term">同周比</span> 12%
+              </trend>
+              <trend flag="up" style="float: right">
+                <span slot="term">日环比</span> 80%
+              </trend>
+            </template>
+          </chart-card>
+        </router-link>
       </a-col>
       <a-col :sm="24" :md="8" :xl="8" :style="{ marginBottom: '24px' }">
-        <chart-card :hoverable="true" :loading="loading" title="污染指标--油" :total="8846 | NumberFormat">
-          <a-tooltip title="指标说明" slot="action">
-            <v-icon type="v-icongas-pump" />
-          </a-tooltip>
-          <div>
-            <mini-area />
-          </div>
-          <template slot="footer">
-            日最高
-            <span> {{ '1234' | NumberFormat }}</span>
-            <trend flag="down" style="margin-right: 16px;">
-              <span slot="term">同周比</span> 12%
-            </trend>
-            <trend flag="up">
-              <span slot="term">日环比</span> 80%
-            </trend>
-          </template>
-        </chart-card>
+        <router-link to="/index/gas">
+          <chart-card :hoverable="true" :loading="loading" title="污染指标--油" :total="3092">
+            <a-tooltip title="加油站" slot="action">
+              <v-icon type="v-icongas-pump" style="color: #C47826; font-size: 22px"/>
+            </a-tooltip>
+            <div>
+              <mini-area />
+            </div>
+            <template slot="footer">
+              日最高
+              <span> {{ '8845' | NumberFormat }}</span>
+              <trend flag="down" style="margin-left: 16px; float: right">
+                <span slot="term">同周比</span> 8%
+              </trend>
+              <trend flag="up" style="float: right">
+                <span slot="term">日环比</span> 18%
+              </trend>
+            </template>
+          </chart-card>
+        </router-link>
       </a-col>
       <a-col :sm="24" :md="8" :xl="8" :style="{ marginBottom: '24px' }">
-        <chart-card :hoverable="true" :loading="loading" title="污染指标--路" :total="8846 | NumberFormat">
-          <a-tooltip title="指标说明" slot="action">
-            <v-icon type="v-iconroad" />
-          </a-tooltip>
-          <div>
-            <mini-area />
-          </div>
-          <template slot="footer">
-            日最高
-            <span> {{ '1234' | NumberFormat }}</span>
-            <trend flag="down" style="margin-right: 16px;">
-              <span slot="term">同周比</span> 12%
-            </trend>
-            <trend flag="up">
-              <span slot="term">日环比</span> 80%
-            </trend>
-          </template>
-        </chart-card>
+        <router-link to="/index/road">
+          <chart-card :hoverable="true" :loading="loading" title="污染指标--路" :total="5449">
+            <a-tooltip title="路网" slot="action">
+              <v-icon type="v-iconroad" style="color: #C47826; font-size: 22px"/>
+            </a-tooltip>
+            <div>
+              <mini-area />
+            </div>
+            <template slot="footer">
+              日最高
+              <span> {{ '6948' | NumberFormat }}</span>
+              <trend flag="down" style="margin-left: 16px; float: right">
+                <span slot="term">同周比</span> 23%
+              </trend>
+              <trend flag="up" style="float: right">
+                <span slot="term">日环比</span> 56%
+              </trend>
+            </template>
+          </chart-card>
+        </router-link>
       </a-col>
     </a-row>
     <a-row>
       <div id="container" class="h400"></div>
-      <!-- <div class="info" style="min-width: 350px; mex-width: 450px;">
-        <h4>热力事件回调参数</h4>
-        <p>当前热力值：<span id="val">{{ this.point.value }}</span></p>
-        <p>当前包含的数据索引：<span id="indexes" style="display: block; overflow: scroll;">{{ this.point.indexes }}</span></p>
-        <p>当前包含的数据数量：<span id="indexes-num">{{ this.point.length }}</span></p>
-        <p>热力中心点坐标：<span id="lng-lat">{{ this.point.lnglat }}</span>
-        </p>
-      </div> -->
     </a-row>
   </div>
 </template>
@@ -85,8 +81,6 @@ import ACol from 'ant-design-vue/es/grid/Col'
 import ATooltip from 'ant-design-vue/es/tooltip/Tooltip'
 import MiniArea from '@/components/chart/MiniArea'
 import Trend from '@/components/Trend'
-import MapLoader from '@/assets/js/AMap.js'
-// import jsondata from '@/assets/data/data.json'
 
 export default {
   name: 'HMonitor',
@@ -101,89 +95,22 @@ export default {
   data () {
     return {
       loading: true,
-      heatmapData: [],
-      point: {}
+      heatmapData: []
     }
   },
+  head: {
+    script: [
+      // { type: 'text/javascript', src: 'http://webapi.amap.com/maps?v=1.3&key=17fbe9e19c55b249fce7393f7b3340e1', async: true, body: false }, // Insert in body
+      { type: 'text/javascript', src: 'http://webapi.amap.com/loca?v=1.2.1&key=17fbe9e19c55b249fce7393f7b3340e1', async: true, body: false }
+    ]
+  },
   created () {
+    this.$on('okHead', () => {
+      setTimeout(() => { this.initMap() }, 2000)
+    })
   },
   mounted () {
     this.heatmapData = this.loadData()
-    const that = this
-    MapLoader().then(({
-      AMap,
-      Loca
-    }) => {
-      that.amap = new AMap.Map('container', {
-        mapStyle: 'amap://styles/midnight',
-        center: [114.317785, 30.569854],
-        zoom: 12,
-        pitch: 35, // 地图俯仰角度，有效范围 0 度- 83 度
-        viewMode: '3D' // 地图模式
-      })
-      that.loca = Loca.create(that.amap)
-      const layer = Loca.visualLayer({
-        container: that.loca,
-        eventSupport: true,
-        type: 'heatmap',
-        // 基本热力图
-        shape: 'normal'
-      })
-      const list = []
-      let i = -1
-      const length = that.heatmapData.length
-      while (++i < length) {
-        const item = that.heatmapData[i]
-        list.push({
-          coordinate: [item.lng, item.lat],
-          count: item.count
-        })
-      }
-      layer.setData(list, {
-        lnglat: 'coordinate',
-        value: 'count'
-      })
-      // layer.setOptions({
-      //   unit: 'meter',
-      //   heightUnit: 'meter',
-      //   style: {
-      //     color: [
-      //       '#2c7bb6',
-      //       '#abd9e9',
-      //       '#ffffbf',
-      //       '#fdae61',
-      //       '#d7191c'
-      //     ],
-      //     height: [0, 500],
-      //     radius: 15,
-      //     gap: 2,
-      //     opacity: 0.85
-      //   },
-      //   selectStyle: {
-      //     color: '#dbf21d',
-      //     opacity: 0.9
-      //   }
-      // })
-      layer.setOptions({
-        style: {
-          radius: 30,
-          color: {
-            0.5: '#2c7bb6',
-            0.65: '#abd9e9',
-            0.7: '#ffffbf',
-            0.9: '#fde468',
-            1.0: '#d7191c'
-          }
-        }
-      })
-      layer.on('mousemove', (ev) => {
-        console.log(ev)
-        that.updateInfo(ev)
-      })
-      layer.render()
-    }, e => {
-      console.log('地图加载失败', e)
-    })
   },
   methods: {
     loadData () {
@@ -200,11 +127,49 @@ export default {
       this.loading = false
       return data
     },
-    updateInfo (ev) {
-      this.point['value'] = ev.value
-      this.point['indexes'] = ev.indexes.join(',')
-      this.point['length'] = ev.indexes.length
-      this.point['lnglat'] = ev.lngLat.valueOf()
+    initMap () {
+      const Loca = window.Loca
+      this.loca = Loca.create('container', {
+        mapStyle: 'amap://styles/midnight',
+        center: [114.317785, 30.569854],
+        zoom: 11,
+        pitch: 35, // 地图俯仰角度，有效范围 0 度- 83 度
+        viewMode: '3D' // 地图模式
+      })
+      const layer = Loca.visualLayer({
+        container: this.loca,
+        eventSupport: true,
+        type: 'heatmap',
+        // 基本热力图
+        shape: 'normal'
+      })
+      const list = []
+      let i = -1
+      const length = this.heatmapData.length
+      while (++i < length) {
+        const item = this.heatmapData[i]
+        list.push({
+          coordinate: [item.lng, item.lat],
+          count: item.count
+        })
+      }
+      layer.setData(list, {
+        lnglat: 'coordinate',
+        value: 'count'
+      })
+      layer.setOptions({
+        style: {
+          radius: 30,
+          color: {
+            0.5: '#2c7bb6',
+            0.65: '#abd9e9',
+            0.7: '#ffffbf',
+            0.9: '#fde468',
+            1.0: '#d7191c'
+          }
+        }
+      })
+      layer.render()
     }
   }
 }

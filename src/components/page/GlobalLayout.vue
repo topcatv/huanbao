@@ -13,7 +13,7 @@
         <side-menu
           :menus="menus"
           :theme="navTheme"
-          :collapsed="false"
+          :collapsed="true"
           :collapsible="true"
           mode="inline"
           @menuSelect="menuSelect"></side-menu>
@@ -24,7 +24,7 @@
         mode="inline"
         :menus="menus"
         :theme="navTheme"
-        :collapsed="collapsed"
+        :collapsed="false"
         :collapsible="true"></side-menu>
     </template>
     <!-- 下次优化这些代码 -->

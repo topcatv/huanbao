@@ -13,7 +13,12 @@
       </div>
       <div class="total">
         <slot name="total">
-          <span>{{ typeof total === 'function' && total() || total }}</span>
+          <!-- <span>{{ typeof total === 'function' && total() || total }}</span> -->
+          <ICountUp
+            :endVal="total"
+            :options="options"
+            @ready="onReady"
+          />
         </slot>
       </div>
     </div>
@@ -31,8 +36,12 @@
 </template>
 
 <script>
+import ICountUp from 'vue-countup-v2'
 export default {
   name: 'ChartCard',
+  components: {
+    ICountUp
+  },
   props: {
     title: {
       type: String,
@@ -50,6 +59,23 @@ export default {
     hoverable: {
       type: Boolean,
       default: false
+    }
+  },
+  data () {
+    return {
+      options: {
+        useEasing: true,
+        useGrouping: true,
+        separator: ',',
+        decimal: '.',
+        prefix: '',
+        suffix: ''
+      }
+    }
+  },
+  methods: {
+    onReady (instance, CountUp) {
+      instance.update(this.total)
     }
   }
 }

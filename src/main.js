@@ -2,6 +2,7 @@ import '@babel/polyfill'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import VueHead from 'vue-head'
 import store from './store/'
 import { VueAxios } from '@/utils/request' // axios 不建议引入到 Vue 原型链上
 
@@ -12,6 +13,7 @@ import '@/utils/filter' // global filter
 
 Vue.config.productionTip = false
 
+Vue.use(VueHead)
 Vue.use(VueAxios, router)
 
 new Vue({

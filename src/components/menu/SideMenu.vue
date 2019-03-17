@@ -5,7 +5,7 @@
     :collapsible="collapsible"
     v-model="collapsed"
     :trigger="null">
-    <logo />
+    <logo title="环保监测平台" />
     <s-menu
       :collapsed="collapsed"
       :menu="menus"
